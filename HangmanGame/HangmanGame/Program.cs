@@ -87,6 +87,7 @@ namespace HangmanGame
             // Flags and required global variables
             bool wannaPlayAgain = false;
             string expectedCapital, expectedCountry;
+            char pressedButtonLW;
 
             // Method for choosing random capital (with country)
             string randomCapital(string[] countriesWithCapitals)
@@ -104,12 +105,28 @@ namespace HangmanGame
             // Procedure of the game - the game main loop
             do
             {
+
                 string[] dividedCountryString = randomCapital(europeans).Split(new char['|'], 2);
-                expectedCountry = dividedCountryString[0];
-                expectedCapital = dividedCountryString[1];
+                expectedCountry = dividedCountryString[0].Trim();
+                expectedCapital = dividedCountryString[1].Trim();
                 Console.WriteLine("Welcome in the Hangman game!");
                 // maybe some ASCII art?
-                Console.WriteLine("Try to guess the european country capital city we bearing in mind. You");
+                Console.WriteLine("Try to guess the european country capital city we have in mind. ");
+                Console.WriteLine("You have 5 lives. First, you decide whether you want to guess a single letter or the whole answer typing l or w accordingly.");
+                Console.WriteLine("If you mistake guessing the letter, you lose one life. If you guessing the whole capital, you lose two lives.");
+
+
+                // THE GAME RUNTIME
+
+                // Reading the input of l/w in infinite loop
+                do
+                {
+                    Console.WriteLine("You want to guess the letter or the whole capital name? Type l or w:");
+                    pressedButtonLW = Console.ReadKey(true).KeyChar;
+                    // Check if user typed a proper letter and proceed
+                } while ( !(new char[] { 'l', 'w', 'L', 'W' }.Any(ch => pressedButtonLW == ch)) );
+
+                // END OF THE GAME RUNTIME
 
             } while (wannaPlayAgain);
 
