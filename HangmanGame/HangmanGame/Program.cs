@@ -85,6 +85,7 @@ namespace HangmanGame
             bool wannaPlayAgain = false;
             bool areYouWinningSon = false;
             string expectedCapital, expectedCountry;
+            char inputLetter;
             char pressedButtonLW;
             int actualLives = 5;
             char[] notInWord = { };
@@ -178,6 +179,28 @@ namespace HangmanGame
                         pressedButtonLW = Console.ReadKey(true).KeyChar;
                         // Check if user typed a proper letter and proceed
                     } while (!(new char[] { 'l', 'w', 'L', 'W' }.Any(ch => pressedButtonLW == ch)));
+
+                    if (pressedButtonLW == 'l' || pressedButtonLW == 'L')
+                    {
+                        // Taking the input letter guessed by player
+                        Console.WriteLine("Now, guess the letter:");
+                        inputLetter = Console.ReadKey().KeyChar;
+                        // Check whether the letter fits into expected word and whether to update the correct letters or "not-in-word" array with lives decrement
+                        if (expectedCapital.Any( ch => ch == inputLetter ))
+                        {
+                            correctlyGuessed[correctlyGuessed.Length] = inputLetter;
+                        }
+                        else
+                        {
+                            --actualLives;
+                            notInWord[notInWord.Length] = inputLetter;
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
 
                 } while (actualLives > 0 && areYouWinningSon == false);
                 // END OF THE GAME RUNTIME
