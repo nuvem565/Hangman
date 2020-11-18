@@ -9,12 +9,7 @@ namespace HangmanGame
 {
     class Program
     {
-        public string RandomCapital(string[] countriesWithCapitals)
-        {
-            Random r = new Random();
-            int countryIndex = r.Next(countriesWithCapitals.Length);
-            return countriesWithCapitals[countryIndex];
-        }
+        
         static void Main(string[] args)
         {
             // import the array of countries with capitals
@@ -81,9 +76,19 @@ namespace HangmanGame
             for (int i = 0; i < europeans.Length; i++)
                 Console.Write(europeans[i] + "\r\n");
 
-            // Flags
+            // Flags and required global variables
             bool wannaPlayAgain = false;
+            string expectedCapital, expectedCountry;
 
+            // Method for choosing random capital (with country)
+            string randomCapital(string[] countriesWithCapitals)
+            {
+                Random r = new Random();
+                int countryIndex = r.Next(countriesWithCapitals.Length);
+                return countriesWithCapitals[countryIndex];
+            }
+
+            
 
         }
     }
