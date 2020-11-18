@@ -185,6 +185,7 @@ namespace HangmanGame
                     {
                         // Taking the input letter guessed by player
                         Console.WriteLine("Now, guess the letter:");
+                        inputLetter = Console.ReadKey(false).KeyChar.ToString().ToUpper();
                         Console.WriteLine();
                         Console.WriteLine();
                         // Check whether the letter fits into expected word and whether to update the correct letters or "not-in-word" array with lives decrement
@@ -200,7 +201,18 @@ namespace HangmanGame
                     }
                     else
                     {
-
+                        // Taking the input answer (word) guessed by player
+                        Console.WriteLine("So, you know what do I think? Don't push yourself, we'll hang on. ");
+                        inputAnswer = Console.ReadLine();
+                        // Check whether it is good answer
+                        if (inputAnswer.ToUpper() == expectedCapital.ToUpper())
+                        {
+                            areYouWinningSon = true;
+                        }
+                        else
+                        {
+                            actualLives -= 2;
+                        }
                     }
 
 
