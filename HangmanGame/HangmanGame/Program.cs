@@ -217,6 +217,33 @@ namespace HangmanGame
 
 
                 } while (actualLives > 0 && areYouWinningSon == false);
+
+
+                // GAMEOVER
+
+                if (areYouWinningSon == true)
+                {
+                    // The guessed answer is correct
+                    Console.WriteLine();
+                    Console.WriteLine("Congratulations! You guessed the correct answer.");
+                    Console.WriteLine();
+                    Console.WriteLine("Do you want to try again? [Y/N]");
+                    char playAgainInput = Console.ReadKey().KeyChar;
+                    if (playAgainInput == 'y' || playAgainInput == 'Y')
+                        wannaPlayAgain = true;
+                    else
+                        wannaPlayAgain = false;
+                }
+                else
+                {
+                    // The game is lost
+
+                }
+
+                // Clearing the flags and variables before the next play (wannaPlayAgain == true)
+
+                // END OF GAMEOVER
+
                 // END OF THE GAME RUNTIME
 
             } while (wannaPlayAgain);
