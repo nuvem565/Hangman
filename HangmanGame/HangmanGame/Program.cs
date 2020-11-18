@@ -85,11 +85,12 @@ namespace HangmanGame
             bool wannaPlayAgain = false;
             bool areYouWinningSon = false;
             string expectedCapital, expectedCountry;
-            char inputLetter;
+            string inputAnswer;
+            string inputLetter;
             char pressedButtonLW;
             int actualLives = 5;
-            char[] notInWord = { };
-            char[] correctlyGuessed = { };
+            List<string> notInWord = new List<string>();
+            List<string> correctlyGuessed = new List<string>();
 
             // Method for choosing random capital (with country)
             string randomCapital(string[] countriesWithCapitals)
@@ -99,13 +100,13 @@ namespace HangmanGame
                 return countriesWithCapitals[countryIndex];
             }
 
-            string hiddenAnswer(char[] correctLetters, string hiddenCapital)
+            string hiddenAnswer(List<string> correctLetters, string hiddenCapital)
             {
                 string output = "";
                 foreach (var letterToHide in hiddenCapital)
                 {
-                    if (correctLetters.Any(l => l == letterToHide))
-                        output += (letterToHide.ToString() + " ");
+                    if (correctLetters.Any(l => l == letterToHide.ToString().ToUpper()))
+                        output += (letterToHide.ToString().ToUpper() + " ");
                     else
                         output += "_ ";
                 }
@@ -184,16 +185,17 @@ namespace HangmanGame
                     {
                         // Taking the input letter guessed by player
                         Console.WriteLine("Now, guess the letter:");
-                        inputLetter = Console.ReadKey().KeyChar;
+                        Console.WriteLine();
+                        Console.WriteLine();
                         // Check whether the letter fits into expected word and whether to update the correct letters or "not-in-word" array with lives decrement
-                        if (expectedCapital.Any( ch => ch == inputLetter ))
+                        if (expectedCapital.Any( ch => ch.ToString().ToUpper() == inputLetter ))
                         {
-                            correctlyGuessed[correctlyGuessed.Length] = inputLetter;
+                            correctlyGuessed.Add(inputLetter.ToUpper());
                         }
                         else
                         {
                             --actualLives;
-                            notInWord[notInWord.Length] = inputLetter;
+                            notInWord.Add(inputLetter.ToUpper());
                         }
                     }
                     else
