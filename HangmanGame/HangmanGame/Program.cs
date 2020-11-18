@@ -12,6 +12,9 @@ namespace HangmanGame
         
         static void Main(string[] args)
         {
+            
+            // PREPARING THE DATA
+
             // import the array of countries with capitals
             string workingDirectory = Environment.CurrentDirectory;
             string countriesFilePath = Directory.GetParent(workingDirectory).Parent.FullName + "\\" + "countries_and_capitals.txt";
@@ -76,6 +79,11 @@ namespace HangmanGame
             for (int i = 0; i < europeans.Length; i++)
                 Console.Write(europeans[i] + "\r\n");
 
+            // END OF PREPARING THE DATA
+
+
+            // GLOBAL (not exactly) VARIABLES, METHODS AND FLAGS
+
             // Flags and required global variables
             bool wannaPlayAgain = false;
             string expectedCapital, expectedCountry;
@@ -88,8 +96,24 @@ namespace HangmanGame
                 return countriesWithCapitals[countryIndex];
             }
 
-            
+            // END OF GLOBAL VARIABLES, METHODS AND FLAGS
 
+
+            // MAIN PROGRAM LOOP
+
+            // Procedure of the game - the game main loop
+            do
+            {
+                string[] dividedCountryString = randomCapital(europeans).Split(new char['|'], 2);
+                expectedCountry = dividedCountryString[0];
+                expectedCapital = dividedCountryString[1];
+                Console.WriteLine("Welcome in the Hangman game!");
+                // maybe some ASCII art?
+                Console.WriteLine("Try to guess the european country capital city we bearing in mind. You");
+
+            } while (wannaPlayAgain);
+
+            // END OF MAIN PROGRAM LOOP
         }
     }
 }
