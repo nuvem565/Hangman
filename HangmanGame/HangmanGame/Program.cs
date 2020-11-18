@@ -111,7 +111,24 @@ namespace HangmanGame
                 return output;
             }
 
-
+            void printLives(int hearts)
+            {
+                for(int i = 0; i < hearts; i++)
+                    Console.Write(" _  _ ");
+                Console.WriteLine();
+                for (int i = 0; i < hearts; i++)
+                    Console.Write("/ \\/ \\");
+                Console.WriteLine();
+                for (int i = 0; i < hearts; i++)
+                    Console.Write("\\    /");
+                Console.WriteLine();
+                for (int i = 0; i < hearts; i++)
+                    Console.Write(" \\  / ");
+                Console.WriteLine();
+                for (int i = 0; i < hearts; i++)
+                    Console.Write("  \\/  ");
+                Console.WriteLine();
+            }
 
             // END OF GLOBAL VARIABLES, METHODS AND FLAGS
 
@@ -137,8 +154,14 @@ namespace HangmanGame
 
                 do
                 {
+
+                    // Prints separation bar, actual number of lives
                     Console.WriteLine("----------");
-                    // display the hidden answer, "not-in-word" list and lives
+                    Console.WriteLine();
+                    printLives(actualLives);
+                    Console.WriteLine();
+
+                    // display the hidden answer and "not-in-word" list
 
 
                     // Reading the input of l/w in infinite loop
