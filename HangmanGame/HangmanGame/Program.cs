@@ -86,8 +86,12 @@ namespace HangmanGame
 
             // Flags and required global variables
             bool wannaPlayAgain = false;
+            bool areYouWinningSon = false;
             string expectedCapital, expectedCountry;
             char pressedButtonLW;
+            int actualLives = 5;
+            char[] notInWord = { };
+            char[] correctlyGuessed = { };
 
             // Method for choosing random capital (with country)
             string randomCapital(string[] countriesWithCapitals)
@@ -95,6 +99,19 @@ namespace HangmanGame
                 Random r = new Random();
                 int countryIndex = r.Next(countriesWithCapitals.Length);
                 return countriesWithCapitals[countryIndex];
+            }
+
+            string hiddenAnswer(char[] correctLetters, string hiddenCapital)
+            {
+                string output = "";
+                foreach (var letterToHide in hiddenCapital)
+                {
+                    if (correctLetters.Any(l => l == letterToHide))
+                        output += letterToHide.ToString();
+                    else
+                        output += "_";
+                }
+                return output;
             }
 
             // END OF GLOBAL VARIABLES, METHODS AND FLAGS
@@ -118,14 +135,21 @@ namespace HangmanGame
 
                 // THE GAME RUNTIME
 
-                // Reading the input of l/w in infinite loop
                 do
                 {
-                    Console.WriteLine("You want to guess the letter or the whole capital name? Type l or w:");
-                    pressedButtonLW = Console.ReadKey(true).KeyChar;
-                    // Check if user typed a proper letter and proceed
-                } while ( !(new char[] { 'l', 'w', 'L', 'W' }.Any(ch => pressedButtonLW == ch)) );
+                    Console.WriteLine("----------");
+                    // display the hidden answer, "not-in-word" list and lives
 
+
+                    // Reading the input of l/w in infinite loop
+                    do
+                    {
+                        Console.WriteLine("You want to guess the letter or the whole capital name? Type l or w:");
+                        pressedButtonLW = Console.ReadKey(true).KeyChar;
+                        // Check if user typed a proper letter and proceed
+                    } while (!(new char[] { 'l', 'w', 'L', 'W' }.Any(ch => pressedButtonLW == ch)));
+
+                } while (actualLives > 0 && areYouWinningSon == false);
                 // END OF THE GAME RUNTIME
 
             } while (wannaPlayAgain);
