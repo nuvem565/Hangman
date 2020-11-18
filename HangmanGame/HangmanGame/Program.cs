@@ -81,7 +81,10 @@ namespace HangmanGame
             for (int i = 0; i < europeans.Length; i++)
                 Console.Write(europeans[i] + "\r\n");
 
-            
+            // Flags
+            bool wannaPlayAgain = false;
+
+
         }
     }
 }
