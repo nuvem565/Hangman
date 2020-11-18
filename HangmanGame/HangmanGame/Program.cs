@@ -104,9 +104,9 @@ namespace HangmanGame
                 foreach (var letterToHide in hiddenCapital)
                 {
                     if (correctLetters.Any(l => l == letterToHide))
-                        output += letterToHide.ToString();
+                        output += (letterToHide.ToString() + " ");
                     else
-                        output += "_";
+                        output += "_ ";
                 }
                 return output;
             }
@@ -140,6 +140,7 @@ namespace HangmanGame
             {
 
                 string[] dividedCountryString = randomCapital(europeans).Split(new char[] { '|' },2);
+                // for debug only
                 Console.WriteLine(randomCapital(europeans));
                 expectedCountry = dividedCountryString[0].Trim();
                 expectedCapital = dividedCountryString[1].Trim();
@@ -148,6 +149,7 @@ namespace HangmanGame
                 Console.WriteLine("Try to guess the european country capital city we have in mind. ");
                 Console.WriteLine("You have 5 lives. First, you decide whether you want to guess a single letter or the whole answer typing l or w accordingly.");
                 Console.WriteLine("If you mistake guessing the letter, you lose one life. If you guessing the whole capital, you lose two lives.");
+                Console.WriteLine();
 
 
                 // THE GAME RUNTIME
@@ -162,7 +164,12 @@ namespace HangmanGame
                     Console.WriteLine();
 
                     // display the hidden answer and "not-in-word" list
-
+                    Console.WriteLine("Used letters: ");
+                    foreach (var letter in notInWord)
+                        Console.Write(letter + " ");
+                    Console.WriteLine();
+                    Console.WriteLine("Secret word: {0}", hiddenAnswer(correctlyGuessed, expectedCapital));
+                    Console.WriteLine();
 
                     // Reading the input of l/w in infinite loop
                     do
