@@ -75,9 +75,6 @@ namespace HangmanGame
                 Array.FindAll(countriesInput, x =>
                     europeanCountries.Any(anyEuropeanCountry => x.StartsWith(anyEuropeanCountry))
                 );
-            // debug
-            for (int i = 0; i < europeans.Length; i++)
-                Console.Write(europeans[i] + "\r\n");
 
             // END OF PREPARING THE DATA
 
@@ -114,6 +111,8 @@ namespace HangmanGame
                 return output;
             }
 
+
+
             // END OF GLOBAL VARIABLES, METHODS AND FLAGS
 
 
@@ -123,7 +122,8 @@ namespace HangmanGame
             do
             {
 
-                string[] dividedCountryString = randomCapital(europeans).Split(new char['|'], 2);
+                string[] dividedCountryString = randomCapital(europeans).Split(new char[] { '|' },2);
+                Console.WriteLine(randomCapital(europeans));
                 expectedCountry = dividedCountryString[0].Trim();
                 expectedCapital = dividedCountryString[1].Trim();
                 Console.WriteLine("Welcome in the Hangman game!");
