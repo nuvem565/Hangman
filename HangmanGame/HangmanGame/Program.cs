@@ -9,15 +9,18 @@ namespace HangmanGame
 {
     class Program
     {
+        public string RandomCapital(string[] countriesWithCapitals)
+        {
+            Random r = new Random();
+            int countryIndex = r.Next(countriesWithCapitals.Length);
+            return countriesWithCapitals[countryIndex];
+        }
         static void Main(string[] args)
         {
             // import the array of countries with capitals
             string workingDirectory = Environment.CurrentDirectory;
             string countriesFilePath = Directory.GetParent(workingDirectory).Parent.FullName + "\\" + "countries_and_capitals.txt";
             string[] countriesInput = File.ReadAllLines(countriesFilePath);
-
-            for(int i = 0; i < countriesInput.Length; i++)
-                Console.Write(countriesInput[i] + "\r\n");
 
             // the array of european countries
             string[] europeanCountries = new string[] {
@@ -69,13 +72,16 @@ namespace HangmanGame
                 "United Kingdom",
                 "Vatican City" };
 
-            // filtering european countries
+            // filtering european countries - europeans with name and capitals as in the input array
             string[] europeans =
                 Array.FindAll(countriesInput, x =>
                     europeanCountries.Any(anyEuropeanCountry => x.StartsWith(anyEuropeanCountry))
                 );
+            // debug
             for (int i = 0; i < europeans.Length; i++)
                 Console.Write(europeans[i] + "\r\n");
+
+            
         }
     }
 }
