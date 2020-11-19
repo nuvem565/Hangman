@@ -273,7 +273,7 @@ namespace HangmanGame
                     string[] record = new string[] { playerName + " | " +  DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + expectedCapital };
                     
                     // Write the name, date, elapsed time, tries and the answered capital to the file
-                    File.AppendAllLines( (projectDirectory + "\\" + "highest_scores.txt"), record);
+                    File.AppendAllLines( (projectDirectory + "\\" + "scores.txt"), record);
 
                     Console.WriteLine();
                     char playAgainInput = askForAgain();
