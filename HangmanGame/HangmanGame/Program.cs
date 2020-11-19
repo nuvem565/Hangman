@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,6 +93,11 @@ namespace HangmanGame
             int roundCounter = 1;
             List<string> notInWord = new List<string>();
             List<string> correctlyGuessed = new List<string>();
+            
+            //Declaring the stopwatch object
+            Stopwatch stoper = new Stopwatch();
+            // To start counting guessing time
+            stoper.Start();
 
             // Method for choosing random capital (with country)
             string randomCapital(string[] countriesWithCapitals)
@@ -134,6 +140,7 @@ namespace HangmanGame
             }
 
             // END OF GLOBAL VARIABLES, METHODS AND FLAGS
+
 
 
             // MAIN PROGRAM LOOP
@@ -232,6 +239,10 @@ namespace HangmanGame
                     Console.WriteLine();
                     Console.WriteLine("   {0}, the capital city of {1}", expectedCapital.ToUpper(), expectedCountry.ToUpper());
                     Console.WriteLine();
+                    stoper.Stop();
+                    TimeSpan elapsedTime = stoper.Elapsed;
+                    Console.WriteLine("You complete the game in: {0} hours, {1} minutes, {2}.{3:000} seconds", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
+                    Console.WriteLine();
                     Console.WriteLine("Do you want to try again? [Y/N]");
                     char playAgainInput;
                     do
@@ -239,7 +250,11 @@ namespace HangmanGame
                         playAgainInput = Console.ReadKey().KeyChar;
                     } while (playAgainInput != 'y' && playAgainInput != 'Y' && playAgainInput != 'n' && playAgainInput !='N');
                     if (playAgainInput == 'y' || playAgainInput == 'Y')
+                    {
                         wannaPlayAgain = true;
+                        // restarts the stopwatch again after won game
+                        stoper.Restart();
+                    }
                     else
                         wannaPlayAgain = false;
                 }
