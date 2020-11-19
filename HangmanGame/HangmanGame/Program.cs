@@ -241,7 +241,13 @@ namespace HangmanGame
                 }
 
                 // Clearing the flags and variables before the next play (wannaPlayAgain == true)
-
+                if(wannaPlayAgain)
+                {
+                    notInWord.Clear();
+                    correctlyGuessed.Clear();
+                    areYouWinningSon = false;
+                    actualLives = 5;
+                }
                 // END OF GAMEOVER
 
                 // END OF THE GAME RUNTIME
