@@ -18,7 +18,8 @@ namespace HangmanGame
 
             // import the array of countries with capitals
             string workingDirectory = Environment.CurrentDirectory;
-            string countriesFilePath = Directory.GetParent(workingDirectory).Parent.FullName + "\\" + "countries_and_capitals.txt";
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string countriesFilePath = projectDirectory + "\\" + "countries_and_capitals.txt";
             string[] countriesInput = File.ReadAllLines(countriesFilePath);
 
             // the array of european countries
@@ -140,6 +141,17 @@ namespace HangmanGame
                 Console.WriteLine();
             }
 
+            char askForAgain()
+            {
+                Console.WriteLine("Do you want to try again? [Y/N]");
+                char wantsToPlayAgain;
+                do
+                {
+                    wantsToPlayAgain = Console.ReadKey().KeyChar;
+                } while (wantsToPlayAgain != 'y' && wantsToPlayAgain != 'Y' && wantsToPlayAgain != 'n' && wantsToPlayAgain != 'N');
+                return wantsToPlayAgain;
+            }
+
             // END OF GLOBAL VARIABLES, METHODS AND FLAGS
 
 
@@ -245,18 +257,26 @@ namespace HangmanGame
                     Console.WriteLine();
                     Console.WriteLine("   {0}, the capital city of {1}", expectedCapital.ToUpper(), expectedCountry.ToUpper());
                     Console.WriteLine();
+
                     // Stops the timer, gets elapsed time
                     stoper.Stop();
                     TimeSpan elapsedTime = stoper.Elapsed;
                     // Write the elapsed time of the game to the console
-                    Console.WriteLine("You complete the game in: {0} hours, {1} minutes, {2}.{3:000} seconds", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
+                    Console.WriteLine("You have completed the game in: {0} hours, {1} minutes, {2}.{3:000} seconds", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
+                    
+                    // Ask player for his/her name
+                    Console.WriteLine("Please, enter your name:");
+                    string playerName = Console.ReadLine();
+
+                    // Format the string to be recorded
+                    string formattedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
+                    string[] record = new string[] { playerName + " | " +  DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + expectedCapital };
+                    
+                    // Write the name, date, elapsed time, tries and the answered capital to the file
+                    File.AppendAllLines( (projectDirectory + "\\" + "highest_scores.txt"), record);
+
                     Console.WriteLine();
-                    Console.WriteLine("Do you want to try again? [Y/N]");
-                    char playAgainInput;
-                    do
-                    {
-                        playAgainInput = Console.ReadKey().KeyChar;
-                    } while (playAgainInput != 'y' && playAgainInput != 'Y' && playAgainInput != 'n' && playAgainInput !='N');
+                    char playAgainInput = askForAgain();
                     if (playAgainInput == 'y' || playAgainInput == 'Y')
                     {
                         wannaPlayAgain = true;
@@ -274,12 +294,7 @@ namespace HangmanGame
                     Console.WriteLine();
                     Console.WriteLine("   {0}, the capital city of {1}", expectedCapital.ToUpper(), expectedCountry.ToUpper());
                     Console.WriteLine();
-                    Console.WriteLine("Do you want to try again? [Y/N]");
-                    char playAgainInput;
-                    do
-                    {
-                        playAgainInput = Console.ReadKey().KeyChar;
-                    } while (playAgainInput != 'y' && playAgainInput != 'Y' && playAgainInput != 'n' && playAgainInput != 'N');
+                    char playAgainInput = askForAgain();
                     if (playAgainInput == 'y' || playAgainInput == 'Y')
                         wannaPlayAgain = true;
                     else
@@ -296,6 +311,7 @@ namespace HangmanGame
                     // increments the guessing tries counter after each lose game
                     if (!areYouWinningSon)
                         guessingTries++;
+                    // to change to false only after guessing tries increment!
                     areYouWinningSon = false;
                     actualLives = 5;
                     roundCounter = 1;
