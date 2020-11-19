@@ -200,6 +200,11 @@ namespace HangmanGame
                         if (expectedCapital.Any( ch => ch.ToString().ToUpper() == inputLetter ))
                         {
                             correctlyGuessed.Add(inputLetter.ToUpper());
+                            // check whether the player actually wins
+                            if( expectedCapital.All(letterOfCapital => correctlyGuessed.Any( correctLetter => correctLetter == letterOfCapital.ToString().ToUpper() )) )
+                            {
+                                areYouWinningSon = true;
+                            }
                         }
                         else
                         {
