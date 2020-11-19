@@ -281,13 +281,20 @@ namespace HangmanGame
                         List<string> storedRecords = File.ReadLines(projectDirectory + "\\" + "high_score.txt").ToList();
                         storedRecords.Add(newRecord[0]);
                         // Sorts the records by ascending order of: 1) number of tries, 2) elapsed time of the game
-                        storedRecords = storedRecords.OrderBy( record => (record.Split( new char[] { '|' } )[3]).Trim() )
-                                                     .ThenBy( record => TimeSpan.Parse((record.Split( new char[] { '|' } )[2]).Trim()) )
+                        try
+                        {
+                            storedRecords = storedRecords.OrderBy(record => (record.Split(new char[] { '|' })[3]).Trim())
+                                                     .ThenBy(record => TimeSpan.Parse((record.Split(new char[] { '|' })[2]).Trim()))
                                                      .ToList();
-                        foreach( var rec in storedRecords)
+                        }
+                        catch(IndexOutOfRangeException)
+                        {
+                            ;
+                        }
+                        foreach( var rec in storedRecords.Take(10))
                             Console.WriteLine(rec);
                         // Takes first 10 records and appends it to the same file
-                        //File.AppendAllLines(projectDirectory + "\\" + "high_score.txt", storedRecords.Take(10));
+                        File.WriteAllLines(projectDirectory + "\\" + "high_score.txt", storedRecords.Take(10));
                     }
                     else
                     {
