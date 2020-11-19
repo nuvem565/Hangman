@@ -177,6 +177,9 @@ namespace HangmanGame
                         {
                             --actualLives;
                             notInWord.Add(inputLetter.ToUpper());
+                            // Display a joke
+                            Console.WriteLine("{0}", longVars.dadJokesGenerator());
+                            Console.WriteLine();
                         }
                     }
                     else
@@ -192,6 +195,10 @@ namespace HangmanGame
                         else
                         {
                             actualLives -= 2;
+                            // Display a joke
+                            Console.WriteLine();
+                            Console.WriteLine("{0}", longVars.dadJokesGenerator());
+                            Console.WriteLine();
                         }
                     }
 
