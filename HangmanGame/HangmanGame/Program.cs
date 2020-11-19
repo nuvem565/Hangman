@@ -330,6 +330,8 @@ namespace HangmanGame
                     // increments the guessing tries counter after each lose game
                     if (!areYouWinningSon)
                         guessingTries++;
+                    else
+                        guessingTries = 1;
                     // to change to false only after guessing tries increment!
                     areYouWinningSon = false;
                     actualLives = 5;
