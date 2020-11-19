@@ -91,6 +91,7 @@ namespace HangmanGame
             char pressedButtonLW;
             int actualLives = 5;
             int roundCounter = 1;
+            int guessingTries = 1;
             List<string> notInWord = new List<string>();
             List<string> correctlyGuessed = new List<string>();
             
@@ -244,8 +245,10 @@ namespace HangmanGame
                     Console.WriteLine();
                     Console.WriteLine("   {0}, the capital city of {1}", expectedCapital.ToUpper(), expectedCountry.ToUpper());
                     Console.WriteLine();
+                    // Stops the timer, gets elapsed time
                     stoper.Stop();
                     TimeSpan elapsedTime = stoper.Elapsed;
+                    // Write the elapsed time of the game to the console
                     Console.WriteLine("You complete the game in: {0} hours, {1} minutes, {2}.{3:000} seconds", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
                     Console.WriteLine();
                     Console.WriteLine("Do you want to try again? [Y/N]");
@@ -290,6 +293,9 @@ namespace HangmanGame
                     Console.WriteLine();
                     notInWord.Clear();
                     correctlyGuessed.Clear();
+                    // increments the guessing tries counter after each lose game
+                    if (!areYouWinningSon)
+                        guessingTries++;
                     areYouWinningSon = false;
                     actualLives = 5;
                     roundCounter = 1;
