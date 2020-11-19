@@ -22,60 +22,12 @@ namespace HangmanGame
             string countriesFilePath = projectDirectory + "\\" + "countries_and_capitals.txt";
             string[] countriesInput = File.ReadAllLines(countriesFilePath);
 
-            // the array of european countries
-            string[] europeanCountries = new string[] {
-                "Albania",
-                "Andorra",
-                "Armenia",
-                "Austria",
-                "Belarus",
-                "Belgium",
-                "Bosnia and Herzegovina",
-                "Bulgaria",
-                "Croatia",
-                "Cyprus",
-                "Czech Republic",
-                "Denmark",
-                "Estonia",
-                "Finland",
-                "France",
-                "Germany",
-                "Greece",
-                "Hungary",
-                "Iceland",
-                "Ireland",
-                "Italy",
-                "Kosovo",
-                "Latvia",
-                "Liechtenstein",
-                "Lithuania",
-                "Luxembourg",
-                "Macedonia",
-                "Malta",
-                "Moldova",
-                "Monaco",
-                "Montenegro",
-                "The Netherlands",
-                "Norway",
-                "Poland",
-                "Portugal",
-                "Romania",
-                "Russia",
-                "San Marino",
-                "Serbia",
-                "Slovakia",
-                "Slovenia",
-                "Spain",
-                "Sweden",
-                "Switzerland",
-                "Ukraine",
-                "United Kingdom",
-                "Vatican City" };
+
 
             // filtering european countries - europeans with name and capitals as in the input array
             string[] europeans =
                 Array.FindAll(countriesInput, x =>
-                    europeanCountries.Any(anyEuropeanCountry => x.StartsWith(anyEuropeanCountry))
+                    longVars.europeanCountries.Any(anyEuropeanCountry => x.StartsWith(anyEuropeanCountry))
                 );
 
 
