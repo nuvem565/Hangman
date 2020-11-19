@@ -262,7 +262,7 @@ namespace HangmanGame
                     stoper.Stop();
                     TimeSpan elapsedTime = stoper.Elapsed;
                     // Write the elapsed time of the game to the console
-                    Console.WriteLine("You have completed the game in: {0} hours, {1} minutes, {2}.{3:000} seconds", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
+                    Console.WriteLine("You have completed the game in {0} seconds", elapsedTime.TotalSeconds.ToString("F3"));
                     
                     // Ask player for his/her name
                     Console.WriteLine("Please, enter your name:");
@@ -270,10 +270,29 @@ namespace HangmanGame
 
                     // Format the string to be recorded
                     string formattedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
-                    string[] record = new string[] { playerName + " | " +  DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + expectedCapital };
+                    string[] newRecord = new string[] { playerName + " | " +  DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + expectedCapital };
                     
                     // Write the name, date, elapsed time, tries and the answered capital to the file
-                    File.AppendAllLines( (projectDirectory + "\\" + "scores.txt"), record);
+                    File.AppendAllLines( (projectDirectory + "\\" + "scores.txt"), newRecord);
+
+                    // Write the record to the 10 highest scores file
+                    if (File.Exists(projectDirectory + "\\" + "high_score.txt"))
+                    {
+                        List<string> storedRecords = File.ReadLines(projectDirectory + "\\" + "high_score.txt").ToList();
+                        storedRecords.Add(newRecord[0]);
+                        // Sorts the records by ascending order of: 1) number of tries, 2) elapsed time of the game
+                        storedRecords = storedRecords.OrderBy( record => (record.Split( new char[] { '|' } )[3]).Trim() )
+                                                     .ThenBy( record => TimeSpan.Parse((record.Split( new char[] { '|' } )[2]).Trim()) )
+                                                     .ToList();
+                        foreach( var rec in storedRecords)
+                            Console.WriteLine(rec);
+                        // Takes first 10 records and appends it to the same file
+                        //File.AppendAllLines(projectDirectory + "\\" + "high_score.txt", storedRecords.Take(10));
+                    }
+                    else
+                    {
+                        File.WriteAllLines(projectDirectory + "\\" + "high_score.txt", (newRecord) );
+                    }
 
                     Console.WriteLine();
                     char playAgainInput = askForAgain();

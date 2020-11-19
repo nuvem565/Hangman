@@ -1,2 +1,14 @@
 Players name | date | guessing time | guessing tries | guessed answer
 tomm | 2020-11-19 | 00:00:13.329 | 1 | Lisbon
+tom | 2020-11-19 | 00:00:05.717 | 1 | Paris
+tom1 | 2020-11-19 | 00:00:48.818 | 1 | Andorra la Vella
+tom | 2020-11-19 | 00:00:07.274 | 1 | Skopje
+tom1 | 2020-11-19 | 00:00:21.492 | 1 | Andorra la Vella
+tom2 | 2020-11-19 | 00:02:41.577 | 3 | Sarajevo
+tomm3 | 2020-11-19 | 00:00:30.891 | 3 | Paris
+tommm | 2020-11-19 | 00:00:09.712 | 1 | Monaco
+tommmm | 2020-11-19 | 00:00:13.770 | 1 | Andorra la Vella
+tommm | 2020-11-19 | 00:00:04.479 | 1 | Minsk
+tom30 | 2020-11-19 | 00:00:30.919 | 2 | Helsinki
+tom09 | 2020-11-19 | 00:00:36.874 | 2 | Minsk
+tmo00 | 2020-11-19 | 00:00:06.327 | 2 | Bern
