@@ -59,6 +59,25 @@ namespace HangmanGame
                 "Vatican City" };
 
 
+        public static void printLives(int hearts)
+        {
+            for (int i = 0; i < hearts; i++)
+                Console.Write(" _  _ ");
+            Console.WriteLine();
+            for (int i = 0; i < hearts; i++)
+                Console.Write("/ \\/ \\");
+            Console.WriteLine();
+            for (int i = 0; i < hearts; i++)
+                Console.Write("\\    /");
+            Console.WriteLine();
+            for (int i = 0; i < hearts; i++)
+                Console.Write(" \\  / ");
+            Console.WriteLine();
+            for (int i = 0; i < hearts; i++)
+                Console.Write("  \\/  ");
+            Console.WriteLine();
+        }
+
         // dad jokes array
         public static string[] comicSans =
             {
