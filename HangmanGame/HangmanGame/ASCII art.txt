@@ -1,0 +1,42 @@
+
+ _  _ 
+/ \/ \
+\    /
+ \  / 
+  \/  
+
+                ______________________        
+               |                      |       
+               |                      |       
+               |                      |       
+              _|_                     |       
+             /O O\                    |       
+             \ ^ /                    |       
+              |w|                     |
+             __#__                    |       
+           /|==#==|\                  |       
+          / |==#==| \                 |       
+         /   ==#==   \                |       
+               #                      |       
+              / \                    /|\      
+             /   \                  / | \     
+            /     \                /  |  \    
+                                  /   |   \   
+---------------------------------/----|----\--
+
+                sssssssssssssssss               
+       sssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsss      
+     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+    SSSSSSS        SSSSSSSSSSSSSSS        SSSSSSS
+   SSSSSS           SSSSSSSSSSSSS           SSSSSS
+   SSSSS       S    SSSSS   SSSSSS    S       SSSSS
+    SSSSSS        SSSSSS     SSSSSSS        SSSSSSS
+    SSSSSSSSSSSSSSSSSSS       SSSSSSSSSSSSSSSSSSSS
+    SSS SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS SSS
+   SSS  S SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS S  SSS
+   SSS  SS SS  SSSSSSSSSSSSSSSSSSSSSSSS SS SSS  SSS
+   SSSS SS SSS SSSS SSSS SSSS SSSS SSS SSS SSS SSSS
+    SSSS S SSS SSSS SSSS SSSS SSSS SSS SSS SS SSSS
+      SSSS SSS SSSS SSSS SSSS SSSS SSS SSS  SSSS
+         SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+               SSSSSSSSSSSSSSSSSSSSSSSS      
