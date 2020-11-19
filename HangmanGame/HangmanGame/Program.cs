@@ -89,6 +89,7 @@ namespace HangmanGame
             string inputLetter;
             char pressedButtonLW;
             int actualLives = 5;
+            int roundCounter = 1;
             List<string> notInWord = new List<string>();
             List<string> correctlyGuessed = new List<string>();
 
@@ -160,7 +161,7 @@ namespace HangmanGame
                 {
 
                     // Prints separation bar, actual number of lives
-                    Console.WriteLine("----------");
+                    Console.WriteLine("---------- ROUND {0} ----------", roundCounter);
                     Console.WriteLine();
                     printLives(actualLives);
                     Console.WriteLine();
@@ -215,6 +216,8 @@ namespace HangmanGame
                         }
                     }
 
+                    // go to next round - increment the index
+                    roundCounter++;
 
                 } while (actualLives > 0 && areYouWinningSon == false);
 
@@ -226,6 +229,8 @@ namespace HangmanGame
                     // The guessed answer is correct
                     Console.WriteLine();
                     Console.WriteLine("Congratulations! You guessed the correct answer.");
+                    Console.WriteLine();
+                    Console.WriteLine("   {0}, the capital city of {1}", expectedCapital.ToUpper(), expectedCountry.ToUpper());
                     Console.WriteLine();
                     Console.WriteLine("Do you want to try again? [Y/N]");
                     char playAgainInput;
@@ -242,7 +247,9 @@ namespace HangmanGame
                 {
                     // The game is lost
                     Console.WriteLine();
-                    Console.WriteLine("You lose!");
+                    Console.WriteLine("You lose! The correct answer is:");
+                    Console.WriteLine();
+                    Console.WriteLine("   {0}, the capital city of {1}", expectedCapital.ToUpper(), expectedCountry.ToUpper());
                     Console.WriteLine();
                     Console.WriteLine("Do you want to try again? [Y/N]");
                     char playAgainInput;
@@ -259,10 +266,13 @@ namespace HangmanGame
                 // Clearing the flags and variables before the next play (wannaPlayAgain == true)
                 if(wannaPlayAgain)
                 {
+                    Console.WriteLine();
+                    Console.WriteLine();
                     notInWord.Clear();
                     correctlyGuessed.Clear();
                     areYouWinningSon = false;
                     actualLives = 5;
+                    roundCounter = 1;
                 }
                 // END OF GAMEOVER
 
