@@ -75,25 +75,6 @@ namespace HangmanGame
                 return output;
             }
 
-            void printLives(int hearts)
-            {
-                for(int i = 0; i < hearts; i++)
-                    Console.Write(" _  _ ");
-                Console.WriteLine();
-                for (int i = 0; i < hearts; i++)
-                    Console.Write("/ \\/ \\");
-                Console.WriteLine();
-                for (int i = 0; i < hearts; i++)
-                    Console.Write("\\    /");
-                Console.WriteLine();
-                for (int i = 0; i < hearts; i++)
-                    Console.Write(" \\  / ");
-                Console.WriteLine();
-                for (int i = 0; i < hearts; i++)
-                    Console.Write("  \\/  ");
-                Console.WriteLine();
-            }
-
             char askForAgain()
             {
                 Console.WriteLine("Do you want to try again? [Y/N]");
@@ -136,7 +117,7 @@ namespace HangmanGame
                     // Prints separation bar, actual number of lives
                     Console.WriteLine("---------- ROUND {0} ----------", roundCounter);
                     Console.WriteLine();
-                    printLives(actualLives);
+                    longVars.printLives(actualLives);
                     Console.WriteLine();
 
                     // display the hidden answer and "not-in-word" list
