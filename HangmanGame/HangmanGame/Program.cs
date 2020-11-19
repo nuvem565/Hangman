@@ -228,7 +228,11 @@ namespace HangmanGame
                     Console.WriteLine("Congratulations! You guessed the correct answer.");
                     Console.WriteLine();
                     Console.WriteLine("Do you want to try again? [Y/N]");
-                    char playAgainInput = Console.ReadKey().KeyChar;
+                    char playAgainInput;
+                    do
+                    {
+                        playAgainInput = Console.ReadKey().KeyChar;
+                    } while (playAgainInput != 'y' && playAgainInput != 'Y' && playAgainInput != 'n' && playAgainInput !='N');
                     if (playAgainInput == 'y' || playAgainInput == 'Y')
                         wannaPlayAgain = true;
                     else
@@ -237,7 +241,19 @@ namespace HangmanGame
                 else
                 {
                     // The game is lost
-
+                    Console.WriteLine();
+                    Console.WriteLine("You lose!");
+                    Console.WriteLine();
+                    Console.WriteLine("Do you want to try again? [Y/N]");
+                    char playAgainInput;
+                    do
+                    {
+                        playAgainInput = Console.ReadKey().KeyChar;
+                    } while (playAgainInput != 'y' && playAgainInput != 'Y' && playAgainInput != 'n' && playAgainInput != 'N');
+                    if (playAgainInput == 'y' || playAgainInput == 'Y')
+                        wannaPlayAgain = true;
+                    else
+                        wannaPlayAgain = false;
                 }
 
                 // Clearing the flags and variables before the next play (wannaPlayAgain == true)
