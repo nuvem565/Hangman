@@ -266,6 +266,11 @@ namespace HangmanGame
                     }
 
                     Console.WriteLine();
+                    // Time for ASCII art
+                    longVars.sans();
+                    Console.WriteLine();
+                    Console.WriteLine();
+
                     char playAgainInput = askForAgain();
                     if (playAgainInput == 'y' || playAgainInput == 'Y')
                     {
