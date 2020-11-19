@@ -78,6 +78,7 @@ namespace HangmanGame
                     europeanCountries.Any(anyEuropeanCountry => x.StartsWith(anyEuropeanCountry))
                 );
 
+
             // END OF PREPARING THE DATA
 
 
@@ -187,9 +188,10 @@ namespace HangmanGame
                     Console.WriteLine();
 
                     // display the hidden answer and "not-in-word" list
-                    Console.WriteLine("Used letters: ");
+                    Console.Write("Used letters: ");
                     foreach (var letter in notInWord)
                         Console.Write(letter + " ");
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Secret word: {0}", hiddenAnswer(correctlyGuessed, expectedCapital));
                     Console.WriteLine();
@@ -251,7 +253,8 @@ namespace HangmanGame
 
                 if (areYouWinningSon == true)
                 {
-                    // The guessed answer is correct
+                    // AFTER WON GAME
+
                     Console.WriteLine();
                     Console.WriteLine("Congratulations! You guessed the correct answer.");
                     Console.WriteLine();
@@ -280,9 +283,10 @@ namespace HangmanGame
                     {
                         List<string> storedRecords = File.ReadLines(projectDirectory + "\\" + "high_score.txt").ToList();
                         storedRecords.Add(newRecord[0]);
-                        // Sorts the records by ascending order of: 1) number of tries, 2) elapsed time of the game
+                        // If the textfile is incorrectly formatted, skip this and write only new record
                         try
                         {
+                            // Sorts the records by ascending order of: 1) number of tries, 2) elapsed time of the game
                             storedRecords = storedRecords.OrderBy(record => (record.Split(new char[] { '|' })[3]).Trim())
                                                      .ThenBy(record => TimeSpan.Parse((record.Split(new char[] { '|' })[2]).Trim()))
                                                      .ToList();
@@ -291,6 +295,7 @@ namespace HangmanGame
                         {
                             ;
                         }
+                        // Display 10 best records to the console
                         foreach( var rec in storedRecords.Take(10))
                             Console.WriteLine(rec);
                         // Takes first 10 records and appends it to the same file
@@ -311,10 +316,13 @@ namespace HangmanGame
                     }
                     else
                         wannaPlayAgain = false;
+
+                    // END OF AFTER WON GAME
                 }
                 else
                 {
-                    // The game is lost
+                    // AFTER LOST GAME
+
                     Console.WriteLine();
                     Console.WriteLine("You lose! The correct answer is:");
                     Console.WriteLine();
@@ -325,6 +333,8 @@ namespace HangmanGame
                         wannaPlayAgain = true;
                     else
                         wannaPlayAgain = false;
+
+                    // END OF AFTER LOST GAME
                 }
 
                 // Clearing the flags and variables before the next play (wannaPlayAgain == true)
