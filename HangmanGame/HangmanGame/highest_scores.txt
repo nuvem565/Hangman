@@ -1,1 +1,2 @@
+Players name | date | guessing time | guessing tries | guessed answer
 tomm | 2020-11-19 | 00:00:13.329 | 1 | Lisbon
