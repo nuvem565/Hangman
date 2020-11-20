@@ -97,8 +97,6 @@ namespace HangmanGame
             {
 
                 string[] dividedCountryString = randomCapital(europeans).Split(new char[] { '|' },2);
-                // for debug only
-                Console.WriteLine(randomCapital(europeans));
                 expectedCountry = dividedCountryString[0].Trim();
                 expectedCapital = dividedCountryString[1].Trim();
                 Console.WriteLine("Welcome in the Hangman game!");
