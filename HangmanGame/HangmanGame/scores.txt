@@ -1,14 +1,23 @@
 Players name | date | guessing time | guessing tries | guessed answer
-tomm | 2020-11-19 | 00:00:13.329 | 1 | Lisbon
-tom | 2020-11-19 | 00:00:05.717 | 1 | Paris
-tom1 | 2020-11-19 | 00:00:48.818 | 1 | Andorra la Vella
-tom | 2020-11-19 | 00:00:07.274 | 1 | Skopje
-tom1 | 2020-11-19 | 00:00:21.492 | 1 | Andorra la Vella
-tom2 | 2020-11-19 | 00:02:41.577 | 3 | Sarajevo
-tomm3 | 2020-11-19 | 00:00:30.891 | 3 | Paris
-tommm | 2020-11-19 | 00:00:09.712 | 1 | Monaco
-tommmm | 2020-11-19 | 00:00:13.770 | 1 | Andorra la Vella
-tommm | 2020-11-19 | 00:00:04.479 | 1 | Minsk
-tom30 | 2020-11-19 | 00:00:30.919 | 2 | Helsinki
-tom09 | 2020-11-19 | 00:00:36.874 | 2 | Minsk
-tmo00 | 2020-11-19 | 00:00:06.327 | 2 | Bern
+tomek2 | 2020-11-19 | 00:00:19.204 | 1 | Bratislava
+tomek4 | 2020-11-19 | 00:00:08.756 | 1 | Bratislava
+tomek5 | 2020-11-19 | 00:00:27.932 | 1 | Belgrade
+tomek6 | 2020-11-19 | 00:00:40.063 | 2 | Berlin
+tomek6 | 2020-11-19 | 00:00:47.736 | 1 | Moscow
+tomek1 | 2020-11-19 | 00:00:44.871 | 1 | Copenhagen
+tomek2 | 2020-11-19 | 00:00:50.376 | 1 | Monaco
+tomek3 | 2020-11-19 | 00:00:24.723 | 1 | Sarajevo
+tomek4 | 2020-11-19 | 00:02:00.160 | 2 | Yerevan
+tomek5 | 2020-11-19 | 00:00:12.139 | 1 | Tirana
+tomek7 | 2020-11-19 | 00:00:53.409 | 1 | Tirana
+tomek8 | 2020-11-19 | 00:01:18.301 | 1 | Sarajevo
+tomek8 | 2020-11-20 | 00:00:10.145 | 1 | Paris
+tomek9 | 2020-11-20 | 00:01:27.353 | 2 | San Marino
+tomek10 | 2020-11-20 | 00:00:39.826 | 1 | Minsk
+tomek1 | 2020-11-20 | 00:01:14.640 | 2 | Kyiv
+tomek2 | 2020-11-20 | 00:01:05.000 | 2 | Stockholm
+tomek4 | 2020-11-20 | 00:00:15.077 | 1 | Oslo
+tomek6 | 2020-11-20 | 00:00:45.372 | 2 | Tallinn
+tomek3 | 2020-11-20 | 00:00:45.101 | 1 | Moscow
+tomek5 | 2020-11-20 | 00:00:24.382 | 1 | Prague
+tomek11 | 2020-11-20 | 00:03:22.195 | 2 | Minsk
