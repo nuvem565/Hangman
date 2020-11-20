@@ -210,6 +210,8 @@ namespace HangmanGame
                     // Ask player for his/her name
                     Console.WriteLine("Please, enter your name:");
                     string playerName = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine();
 
                     // Format the string to be recorded
                     string formattedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
@@ -236,6 +238,7 @@ namespace HangmanGame
                             ;
                         }
                         // Display 10 best records to the console
+                        Console.Write("Player name | Date | Guessing time (hh:mm:ss) | Number of tries | Correct answer");
                         foreach( var rec in storedRecords.Take(10))
                             Console.WriteLine(rec);
                         // Takes first 10 records and appends it to the same file
