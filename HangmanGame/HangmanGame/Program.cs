@@ -113,6 +113,7 @@ namespace HangmanGame
 
                 do
                 {
+                    // GAME STATE
 
                     // Prints separation bar, actual number of lives
                     Console.WriteLine("---------- ROUND {0} ----------", roundCounter);
@@ -136,6 +137,11 @@ namespace HangmanGame
                         pressedButtonLW = Console.ReadKey(true).KeyChar;
                         // Check if user typed a proper letter and proceed
                     } while (!(new char[] { 'l', 'w', 'L', 'W' }.Any(ch => pressedButtonLW == ch)));
+
+                    // END OF GAME STATE
+
+
+                    // PRESSED THE BUTTON
 
                     if (pressedButtonLW == 'l' || pressedButtonLW == 'L')
                     {
@@ -163,7 +169,7 @@ namespace HangmanGame
                             Console.WriteLine();
                         }
                     }
-                    else
+                    else // pressed W
                     {
                         // Taking the input answer (word) guessed by player
                         Console.WriteLine("So, you know what do I think? Don't push yourself, we'll hang on. ");
@@ -185,6 +191,8 @@ namespace HangmanGame
 
                     // go to next round - increment the index
                     roundCounter++;
+
+                    // END OF PRESSED THE BUTTON
 
                 } while (actualLives > 0 && areYouWinningSon == false);
 
@@ -215,7 +223,7 @@ namespace HangmanGame
 
                     // Format the string to be recorded
                     string formattedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
-                    string[] newRecord = new string[] { playerName + " | " +  DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + expectedCapital };
+                    string[] newRecord = { playerName + " | " +  DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + expectedCapital };
                     
                     // Write the name, date, elapsed time, tries and the answered capital to the file
                     File.AppendAllLines( (projectDirectory + "\\" + "scores.txt"), newRecord);
